@@ -1,5 +1,10 @@
-FROM caky/flask-sqlalchemy
+FROM python:3.9-slim
 
-RUN pip install -r requirements.txt
+RUN pip install flask
 
-ENTRYPOINT ["python", "app.py"]
+EXPOSE 5000
+
+WORKDIR /app
+COPY app.py /app/app.py
+
+CMD ["python", "app.py"]
